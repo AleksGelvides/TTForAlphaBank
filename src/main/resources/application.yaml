@@ -6,6 +6,8 @@ spring:
   request:
     openexchangerates:
       server-request: https://openexchangerates.org/api/
+      latest-cource: latest.json
+      historical-cource: historical
       application-id: app_id=bf53d387931f4216b6337c79e8eebd94
     giphy:
       server-request: https://api.giphy.com/v1/gifs/random
@@ -18,4 +20,4 @@ spring:
       retry:
         enabled: true
 server:
-  port: 8081
+  port: 8080
