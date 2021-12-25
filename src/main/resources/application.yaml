@@ -1,0 +1,21 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: spring-boot-module-moneyman
+  request:
+    openexchangerates:
+      server-request: https://openexchangerates.org/api/
+      application-id: app_id=bf53d387931f4216b6337c79e8eebd94
+    giphy:
+      server-request: https://api.giphy.com/v1/gifs/random
+      positive-gif: tag=rich
+      negative-gif: tag=broke
+      application-id: api_key=K2PRuKiwjhZpcXenI35FVJBYn7WGK7Qr
+
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+server:
+  port: 8081
