@@ -4,14 +4,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gelvides.for_alpha.entity.Price;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import static com.netflix.config.DeploymentContext.ContextKey.environment;
+
 @Service
 public class MoneyService {
+    @Value("${spring.request.currency.convert-currency}")
+    private String currency;
 
     public Price comparisonVolume(String json){
         var price = new Price(getDoubleVolume(json));
@@ -22,7 +27,7 @@ public class MoneyService {
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode jsonNode = mapper.readTree(json);
-            return Double.parseDouble(jsonNode.get("rates").get("RUB").asText());
+            return Double.parseDouble(jsonNode.get("rates").get(currency).asText());
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
