@@ -14,7 +14,13 @@ spring:
       positive-gif: tag=rich
       negative-gif: tag=broke
       application-id: api_key=K2PRuKiwjhZpcXenI35FVJBYn7WGK7Qr
-
+    currency:
+      #Not used
+      #Changing the API `base` currency is available for Developer, Enterprise and Unlimited plan clients. Please upgrade, or contact support@openexchangerates.org with any questions.
+      target-currency: USD
+      #Base only USD
+      #Сonversion to any currency
+      convert-currency: RUB
   cloud:
     loadbalancer:
       retry:

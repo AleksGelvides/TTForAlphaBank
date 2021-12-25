@@ -17,7 +17,7 @@ public class ViewController implements GettingYesterdayDate{
     @Autowired
     MoneyService moneyService;
     @Autowired
-    RestClient restClient;
+    CurrencyRestClient restClient;
 
     @GetMapping()
     public String goPage(Model model){

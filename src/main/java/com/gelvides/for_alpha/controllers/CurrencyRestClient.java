@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "${spring.application.name}", url = "${spring.request.openexchangerates.server-request}")
-public interface RestClient {
+public interface CurrencyRestClient {
     @GetMapping("${spring.request.openexchangerates.latest-cource}?${spring.request.openexchangerates.application-id}")
     String getCource();
 
