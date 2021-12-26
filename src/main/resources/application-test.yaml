@@ -2,7 +2,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
   application:
-    name: spring-boot-module-moneyman
+    name: spring-test-moneyman
   request:
     openexchangerates:
       server-request: https://openexchangerates.org/api/
@@ -26,4 +26,4 @@ spring:
       retry:
         enabled: true
 server:
-  port: 8080
+  port: 8081
