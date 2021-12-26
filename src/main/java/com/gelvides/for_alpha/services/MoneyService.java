@@ -7,12 +7,6 @@ import com.gelvides.for_alpha.entity.Price;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import static com.netflix.config.DeploymentContext.ContextKey.environment;
-
 @Service
 public class MoneyService {
     @Value("${spring.request.currency.convert-currency}")
