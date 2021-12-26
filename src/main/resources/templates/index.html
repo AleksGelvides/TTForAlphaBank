@@ -13,8 +13,8 @@
             <th>Курс сегодня</th>
         </tr>
         <tr>
-            <td th:utext="${priceYesterday.priceUsdRub()}">Курс вчера</td>
-            <td th:utext="${priceToday.priceUsdRub()}">Курс сегодня</td>
+            <td th:utext="${priceYesterday.priceCurrency()}">Курс вчера</td>
+            <td th:utext="${priceToday.priceCurrency()}">Курс сегодня</td>
         </tr>
     </table>
     <br><br>

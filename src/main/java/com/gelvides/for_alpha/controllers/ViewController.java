@@ -25,7 +25,7 @@ public class ViewController implements GettingYesterdayDate{
         var priceYesterday = moneyService.comparisonVolume(restClient.getCource(getYesterdayDate()));
         model.addAttribute("priceToday", priceToday);
         model.addAttribute("priceYesterday", priceYesterday);
-        if(priceToday.priceUsdRub() > priceYesterday.priceUsdRub()){
+        if(priceToday.priceCurrency() > priceYesterday.priceCurrency()){
             model.addAttribute("media", mediaService.createMedia(mediaRestClient.getPositiveMedia()));
         } else
             model.addAttribute("media", mediaService.createMedia(mediaRestClient.getNegativeMedia()));
