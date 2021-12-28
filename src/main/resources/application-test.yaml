@@ -9,11 +9,19 @@ spring:
       latest-cource: latest.json
       historical-cource: historical
       application-id: app_id=bf53d387931f4216b6337c79e8eebd94
+      today-cource-json-file-for-test-services: ./src/test/resources/sql/currency/response/todayCourse.json
+      yesterday-course-json-file-for-test-services: ./src/test/resources/sql/currency/response/yesterdayCourse.json
+      rich-today-course-json-file-for-test-client: ./src/test/resources/sql/currency/response/controllertest/rich/todayCourse.json
+      rich-yesterday-course-json-file-for-test-client: ./src/test/resources/sql/currency/response/controllertest/rich/yesterdayCourse.json
+      broke-today-course-json-file-for-test-client: ./src/test/resources/sql/currency/response/controllertest/broke/todayCourse.json
+      broke-yesterday-course-json-file-for-test-client: ./src/test/resources/sql/currency/response/controllertest/broke/yesterdayCourse.json
     giphy:
       server-request: https://api.giphy.com/v1/gifs/random
       positive-gif: tag=rich
       negative-gif: tag=broke
       application-id: api_key=K2PRuKiwjhZpcXenI35FVJBYn7WGK7Qr
+      rich-json-file-for-test: ./src/test/resources/sql/media/response/rich.json
+      broke-json-file-for-test: ./src/test/resources/sql/media/response/broke.json
     currency:
       #Not used
       #Changing the API `base` currency is available for Developer, Enterprise and Unlimited plan clients. Please upgrade, or contact support@openexchangerates.org with any questions.

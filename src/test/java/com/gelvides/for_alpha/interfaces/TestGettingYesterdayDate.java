@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Spy;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.util.Assert;
 
@@ -15,7 +17,8 @@ import java.util.Date;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-@ExtendWith(SpringExtension.class)
+@SpringBootTest
+@ActiveProfiles(profiles = "test")
 public class TestGettingYesterdayDate {
     @Spy
     GettingYesterdayDate gettingYesterdayDate;
