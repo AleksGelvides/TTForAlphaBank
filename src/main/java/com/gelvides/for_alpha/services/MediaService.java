@@ -13,7 +13,7 @@ public class MediaService {
     @SneakyThrows
     public Media createMedia(String json){
         var urlMedia = getMediaElement(json);
-        if(urlMedia == null)
+        if(urlMedia == null && urlMedia.equals(""))
             throw new Exception("Media not found");
         return new Media(urlMedia);
     }
