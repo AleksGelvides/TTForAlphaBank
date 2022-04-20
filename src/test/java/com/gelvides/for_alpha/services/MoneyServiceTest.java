@@ -1,22 +1,20 @@
 package com.gelvides.for_alpha.services;
 
-import com.gelvides.for_alpha.controllers.CurrencyRestClient;
+import com.gelvides.for_alpha.ForAlphaApplicationTests;
+import com.gelvides.for_alpha.feign.CurrencyRestClient;
 import com.gelvides.for_alpha.servicemethod.Json;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
-@ActiveProfiles(profiles = "test")
-public class MoneyServiceTest {
+public class MoneyServiceTest extends ForAlphaApplicationTests {
     @Value("${spring.request.openexchangerates.today-cource-json-file-for-test-services}")
     private String todayCourse;
     @Value("${spring.request.openexchangerates.yesterday-course-json-file-for-test-services}")
@@ -25,16 +23,20 @@ public class MoneyServiceTest {
     @MockBean
     CurrencyRestClient currencyRestClient;
 
-    @Autowired
+    @InjectMocks
     MoneyService moneyService;
+
+    @BeforeEach
+    private void init(){
+        moneyService.currency = "RUB";
+    }
 
     @Test
     public void getTodayCourseDoubleParsingTargetCurrency(){
         when(currencyRestClient.getCource()).thenReturn(Json.getJSONString(todayCourse));
 
         var todayUsdRub = 73.6685;
-        var jsonTodayCourse = currencyRestClient.getCource();
-        var todayCoursePrice = moneyService.comparisonVolume(jsonTodayCourse);
+        var todayCoursePrice = moneyService.comparisonVolume(currencyRestClient.getCource());
 
         assertNotNull(todayCoursePrice);
         assertEquals(todayUsdRub, todayCoursePrice.priceCurrency());

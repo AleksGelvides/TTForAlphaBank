@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MoneyService {
     @Value("${spring.request.currency.convert-currency}")
-    private String currency;
+    String currency;
 
     public Price comparisonVolume(String json){
         var price = new Price(getDoubleVolume(json));

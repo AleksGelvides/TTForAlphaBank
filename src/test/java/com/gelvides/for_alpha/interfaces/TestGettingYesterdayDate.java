@@ -1,26 +1,16 @@
 package com.gelvides.for_alpha.interfaces;
 
+import com.gelvides.for_alpha.ForAlphaApplicationTests;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Spy;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.util.Assert;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
-@SpringBootTest
-@ActiveProfiles(profiles = "test")
-public class TestGettingYesterdayDate {
-    @Spy
+public class TestGettingYesterdayDate extends ForAlphaApplicationTests {
+    @Autowired
     GettingYesterdayDate gettingYesterdayDate;
 
     @Test
@@ -45,8 +35,6 @@ public class TestGettingYesterdayDate {
         Assertions.assertNotEquals(gettingYesterdayDate.getYesterdayDate(),
                 tomorrowDateInString);
         Assertions.assertEquals(gettingYesterdayDate.getYesterdayDate(), yesterdayDateInString);
-
-        verify(gettingYesterdayDate, times(3)).getYesterdayDate();
     }
 }
 

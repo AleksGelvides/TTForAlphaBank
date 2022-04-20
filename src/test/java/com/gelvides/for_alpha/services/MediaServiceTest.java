@@ -1,19 +1,18 @@
 package com.gelvides.for_alpha.services;
-import com.gelvides.for_alpha.controllers.MediaRestClient;
+
+import com.gelvides.for_alpha.ForAlphaApplicationTests;
+import com.gelvides.for_alpha.feign.MediaRestClient;
 import com.gelvides.for_alpha.servicemethod.Json;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
-@ActiveProfiles(profiles = "test")
-public class MediaServiceTest {
+public class MediaServiceTest extends ForAlphaApplicationTests {
+
     @Value("${spring.request.giphy.rich-json-file-for-test}")
     private String richJson;
     @Value("${spring.request.giphy.broke-json-file-for-test}")
@@ -21,7 +20,8 @@ public class MediaServiceTest {
 
     @MockBean
     MediaRestClient mediaRestClient;
-    @Autowired
+
+    @InjectMocks
     MediaService mediaService;
 
 
