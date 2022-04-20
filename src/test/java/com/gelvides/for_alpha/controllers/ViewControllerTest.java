@@ -1,7 +1,10 @@
 package com.gelvides.for_alpha.controllers;
 
+import com.gelvides.for_alpha.ForAlphaApplicationTests;
 import com.gelvides.for_alpha.entity.Media;
 import com.gelvides.for_alpha.entity.Price;
+import com.gelvides.for_alpha.feign.CurrencyRestClient;
+import com.gelvides.for_alpha.feign.MediaRestClient;
 import com.gelvides.for_alpha.servicemethod.Json;
 import com.gelvides.for_alpha.services.MediaService;
 import com.gelvides.for_alpha.services.MoneyService;
@@ -9,9 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
@@ -22,10 +23,9 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest
-@ActiveProfiles(profiles = "test")
 @AutoConfigureMockMvc
-public class ViewControllerTest {
+public class ViewControllerTest extends ForAlphaApplicationTests {
+
     @Autowired
     private MockMvc mockMvc;
     @Value("${spring.request.giphy.rich-json-file-for-test}")

@@ -1,9 +1,12 @@
 package com.gelvides.for_alpha.interfaces;
 
+import org.springframework.stereotype.Component;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+@Component
 public interface GettingYesterdayDate {
     default String getYesterdayDate() {
         Calendar calendar = Calendar.getInstance();
