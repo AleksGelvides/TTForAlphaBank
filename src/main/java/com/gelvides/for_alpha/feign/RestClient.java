@@ -1,4 +1,4 @@
-package com.gelvides.for_alpha.controllers;
+package com.gelvides.for_alpha.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
