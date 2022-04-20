@@ -1,5 +1,7 @@
 package com.gelvides.for_alpha.controllers;
 
+import com.gelvides.for_alpha.feign.MediaRestClient;
+import com.gelvides.for_alpha.feign.RestClient;
 import com.gelvides.for_alpha.services.MediaService;
 import com.gelvides.for_alpha.services.MoneyService;
 import org.springframework.beans.factory.annotation.Autowired;
