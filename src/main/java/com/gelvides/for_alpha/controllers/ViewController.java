@@ -1,5 +1,7 @@
 package com.gelvides.for_alpha.controllers;
 
+import com.gelvides.for_alpha.feign.MediaRestClient;
+import com.gelvides.for_alpha.feign.RestClient;
 import com.gelvides.for_alpha.services.MediaService;
 import com.gelvides.for_alpha.services.MoneyService;
 import com.gelvides.for_alpha.interfaces.GettingYesterdayDate;
